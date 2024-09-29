@@ -1,24 +1,29 @@
 # futzitos
 
-## Criar ambiente virtual (Windows)
+### - Instalar Python
+
+### - Criar ambiente virtual e executar (Windows)
 ```shell
-# Instalar python
 python -m venv futzitos-env
 ```
+```shell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
-## Instalar dependências
+futzitos-env\Scripts\activate
+```
 
+
+### - Instalar dependências
 ```shell
 pip install -r requirements/dev.txt
 ```
 
-## Rodar migrações
+### - Rodar migrações
 ```shell
-manage.py migrate
+python manage.py migrate
 ```
 
-
-## Rodar projeto
+### - Rodar projeto
 ```
-manage.py runserver 8001
+python manage.py runserver 8001
 ```
