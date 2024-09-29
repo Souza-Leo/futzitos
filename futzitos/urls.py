@@ -5,5 +5,5 @@ from player import urls as player_urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("player/", include(("player.urls", "player"), namespace="player")),
+    path("", include(("player.urls", "player"), namespace="player")),
 ]

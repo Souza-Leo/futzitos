@@ -23,6 +23,11 @@ pip install -r requirements/dev.txt
 python manage.py migrate
 ```
 
+### - Criar Super usuário
+```shell
+python manage.py createsuperuser
+```
+
 ### - Rodar projeto
 ```
 python manage.py runserver 8001

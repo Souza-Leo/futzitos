@@ -1,17 +1,8 @@
-from django.urls import path, include
+from django.urls import path, include # type: ignore
 
-from player.views import PlayerListView
+from player.views import PlayerListView, PlayerDetailView
 
 urlpatterns = [
-    path("list/", PlayerListView.as_view(), name="list"),
-    # path("detail/", PlayerDetailView.as_view(), name="detail"),
+    path("", PlayerListView.as_view(), name="list"),
+    path("jogador/<slug:player_id>/", PlayerDetailView.as_view(), name="detail"),
 ]
-
-""""
-    - urls
-        /player = rota
-        - player (include)
-            - urls
-
-    futdb.com/player/list
-"""
