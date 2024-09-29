@@ -1,9 +1,8 @@
 from django.views.generic.base import TemplateView
-
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-from player.models import Player
+from player.repositories.player_repository import PlayerRepository
 
 # Alta coesão e Baixo acoplamento
 
@@ -27,22 +26,15 @@ PlayerDetailView:
 
 class PlayerDetailView(TemplateView):
     template_name = 'player/player-detail.html'
-    model = Player
+    repository = PlayerRepository()
 
     def get(self, *args, **kwargs):
         context = self.get_context_data(**kwargs)
 
-        if not context['player']:
-            return HttpResponseRedirect(reverse('player:list'))
+        player = self.repository.get_by_id(kwargs["player_id"])
 
-        return self.render_to_response(context)
+        if player:
+            context["player"] = player
+            return self.render_to_response(context)
 
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-
-        try:
-            context['player'] = self.model.objects.get(id=kwargs['player_id'])
-        except self.model.DoesNotExist:
-            context['player'] = None
-
-        return context
+        return HttpResponseRedirect(reverse('player:list'))
