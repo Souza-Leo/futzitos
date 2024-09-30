@@ -1,3 +1,7 @@
+# PLAYER
+
+
+
 
 """
 - Alta coesão e Baixo acoplamento
@@ -13,9 +17,31 @@ PlayerDetailView:
 """
 
 
+# models.py
 
+    # entidades/tabelas do banco de dados
 
+    # Player()
 
+# views.py
+
+# POO (Class)
+    # Pilares
+        # Abstração
+            # Representar uma entidade do mundo real para o seu sistema.
+        # Encapsulamento (segurança/privatizar métodos)
+        # Herança
+            # Herdar atributos ou métodos de outro objeto (pai)
+        # Polimorfismo
+            # Mudar de forma ou estado
+
+# function based view (function)
+def list_players_view(self, request):
+    pass
+
+# - Class based view (object)
+class ListPlayersView('View'):
+    pass
 
 
 """
